@@ -3,15 +3,28 @@ package jatek;
 public class Jatek {
 
     public static void main(String[] args) {
-        Karakter k = new Karakter();
-        k.felvesz(new Targy("akna", "igen"));
-        k.felvesz(new Targy("penz", "jajam"), 3);
-        k.felvesz(new Targy("zseton", "ja"));
-        System.out.println(k.toString());
-        k.hasznal("aknaass");
-        k.hasznal("penz", 3);
-        System.out.println(k.toString());
-        
+        Karakter karakter = new Karakter();
+
+        karakter.felvesz(new Targy("d", "d leírás"), 2);
+        karakter.felvesz(new Targy("a", "Leírás"), 2);
+        karakter.felvesz(new Targy("d", "d leírás"), 2);
+        karakter.felvesz(new Targy("b", "b leírás"));
+        karakter.felvesz(new Targy("c", "c leírás"), 1);
+        karakter.felvesz(new Targy("d", "d leírás"), 2);
+        karakter.felvesz(new Targy("a", "Leírás"));
+        karakter.felvesz(new Targy("d", "d leírás"), 2);
+        karakter.felvesz(new Targy("a", "Leírás"));
+        karakter.felvesz(new Targy("d", "d leírás"), 2);
+        karakter.felvesz(new Targy("c", "c leírás"), 3);
+        System.out.println(karakter.toString());
+        karakter.hasznal("a");
+        karakter.hasznal("b", 2);
+        karakter.hasznal("c", 5, false);
+        karakter.hasznal("d", 5);
+        karakter.hasznal("x");
+
+        System.out.println(karakter.toString());
+
     }
 
 }
