@@ -1,20 +1,22 @@
 package jatek;
 
-public class Kezdes extends Helyszin {
+public class Kezdes extends Helyszin implements MasikIrany {
 
     @Override
     public String leiras() {
-        return "Ez a kezdés! Menj balra!";
-    }
-
-    @Override
-    public Helyszin egyikIrany() {
-        throw new UnsupportedOperationException("Nem tudjuk, hova a kezdésoldalról???"); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return "Ez a kezdés! Jobbra vagy balra?";
     }
 
     @Override
     public String egyikBtnFelirat() {
-        return "-->";
+        return "jobbra";
     }
+
+    @Override
+    public Helyszin egyikIrany() {
+        return new Jobbra();
+    }
+    
+    
 
 }
