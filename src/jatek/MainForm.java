@@ -1,19 +1,19 @@
 package jatek;
 
 public class MainForm extends javax.swing.JFrame {
-    
+
     private Helyszin helyszin;
-    
+
     public MainForm() {
         initComponents();
-        
+
         helyszin = new Start();
         jTextArea1.insert(helyszin.leiras() + "\n", 0);
-        
+
         jButton1.setVisible(false);
         jButton2.setText(helyszin.egyikBtnFelirat());
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -32,6 +32,11 @@ public class MainForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton1.setText("másik irány");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("egyik irány");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -79,11 +84,22 @@ public class MainForm extends javax.swing.JFrame {
         jButton2.setText(helyszin.egyikBtnFelirat());
         jTextArea1.insert(helyszin.leiras() + "\n", 0);
         jTextArea1.setCaretPosition(0);
-        
-        if(helyszin instanceof MasikIrany){
-        jButton1.setVisible(true);
+        if (helyszin instanceof MasikIrany) {
+            jButton1.setVisible(true);
+            jButton1.setText(((MasikIrany) helyszin).masikBtnFelirata());
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        helyszin = ((MasikIrany)helyszin).masikIrany();
+        jButton1.setText(helyszin.egyikBtnFelirat());
+        jTextArea1.insert(helyszin.leiras() + "\n", 0);
+        jTextArea1.setCaretPosition(0);
+
+        if (helyszin instanceof MasikIrany) {
+            jButton2.setText(((MasikIrany) helyszin).masikBtnFelirata());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

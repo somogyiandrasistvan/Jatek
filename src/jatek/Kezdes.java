@@ -16,6 +16,18 @@ public class Kezdes extends Helyszin implements MasikIrany {
     public Helyszin egyikIrany() {
         return new Jobbra();
     }
+
+    @Override
+    public String masikBtnFelirata() {
+        return "balra";
+    }
+
+    @Override
+    public Helyszin masikIrany() {
+        return new Balra();
+    }
+
+
     
     
 
