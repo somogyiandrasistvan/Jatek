@@ -1,16 +1,19 @@
 package jatek;
 
 public class MainForm extends javax.swing.JFrame {
-
+    
     private Helyszin helyszin;
     
     public MainForm() {
         initComponents();
-
+        
         helyszin = new Start();
-        jTextArea1.setText(helyszin.leiras());
+        jTextArea1.insert(helyszin.leiras() + "\n", 0);
+        
+        jButton1.setVisible(false);
+        jButton2.setText(helyszin.egyikBtnFelirat());
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -28,9 +31,9 @@ public class MainForm extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("másik irány");
 
-        jButton2.setText("jButton2");
+        jButton2.setText("egyik irány");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -73,7 +76,9 @@ public class MainForm extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         helyszin = helyszin.egyikIrany();
-        jTextArea1.setText(helyszin.leiras());
+        jButton2.setText(helyszin.egyikBtnFelirat());
+        jTextArea1.insert(helyszin.leiras() + "\n", 0);
+        jTextArea1.setCaretPosition(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
